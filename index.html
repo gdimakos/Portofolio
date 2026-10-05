@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Γεώργιος Δημάκος | Senior Technical Support Engineer</title>
+  <style>
+    :root {
+      --primary: #0f172a;
+      --accent: #2563eb;
+      --accent-hover: #1d4ed8;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #334155;
+      --heading: #0f172a;
+      --border: #e2e8f0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: white;
+      padding: 4rem 1.5rem 3rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    header h2 {
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: #93c5fd;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-chips {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .contact-chips a, .contact-chips span {
+      color: #e2e8f0;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.95rem;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 0.45rem 1.2rem;
+      border-radius: 9999px;
+      transition: background 0.2s;
+    }
+
+    .contact-chips a:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Container & Sections */
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
+
+    section {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      border: 1px solid var(--border);
+    }
+
+    section h3 {
+      font-size: 1.35rem;
+      color: var(--heading);
+      border-bottom: 2px solid #eff6ff;
+      padding-bottom: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .skill-tag {
+      background: #eff6ff;
+      color: var(--accent);
+      border: 1px solid #bfdbfe;
+      padding: 0.4rem 0.85rem;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    /* Experience Timeline */
+    .timeline {
+      position: relative;
+      border-left: 2px solid var(--border);
+      padding-left: 1.5rem;
+      margin-left: 0.5rem;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2rem;
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -1.95rem;
+      top: 0.35rem;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid white;
+    }
+
+    .job-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--heading);
+    }
+
+    .job-company {
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .job-dates {
+      font-size: 0.85rem;
+      color: #64748b;
+      margin-bottom: 0.5rem;
+    }
+
+    .job-desc {
+      list-style-type: disc;
+      margin-left: 1.25rem;
+      font-size: 0.95rem;
+    }
+
+    .job-desc li {
+      margin-bottom: 0.3rem;
+    }
+
+    /* Media & Gallery Grid */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .gallery-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fafafa;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .gallery-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      background-color: #e2e8f0;
+    }
+
+    .gallery-info {
+      padding: 0.85rem 1rem;
+    }
+
+    .gallery-info h4 {
+      font-size: 0.95rem;
+      color: var(--heading);
+      margin-bottom: 0.2rem;
+    }
+
+    .gallery-info p {
+      font-size: 0.82rem;
+      color: #64748b;
+    }
+
+    /* Video Container Card */
+    .video-card {
+      margin-top: 1.5rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fafafa;
+    }
+
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 ratio */
+      height: 0;
+      overflow: hidden;
+      background-color: #0f172a;
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* Lightbox Modal */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(4px);
+      justify-content: center;
+      align-items: center;
+      padding: 1.5rem;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 85vh;
+      border-radius: 8px;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Education */
+    .edu-item {
+      margin-bottom: 1.2rem;
+    }
+
+    .edu-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .edu-title {
+      font-weight: 700;
+      color: var(--heading);
+    }
+
+    .edu-sub {
+      color: #64748b;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      font-size: 0.85rem;
+      color: #94a3b8;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Γεώργιος Δημάκος</h1>
+    <h2>Senior Technical Support Engineer | IT Support | POS Systems</h2>
+    <div class="contact-chips">
+      <span>📍 Αθήνα</span>
+      <a href="mailto:dimakosgr@yahoo.gr">✉ dimakosgr@yahoo.gr</a>
+    </div>
+  </header>
+
+  <main class="container">
+    
+    <!-- Profile -->
+    <section>
+      <h3>Επαγγελματικό Προφίλ</h3>
+      <p>
+        Έμπειρος Technical Support Engineer με περισσότερα από 20 χρόνια εμπειρίας στην τεχνική υποστήριξη, επισκευή και εγκατάσταση POS συστημάτων, υπολογιστών, δικτύων και περιφερειακών. Εξειδίκευση σε WordPress, τηλεφωνική και επιτόπια υποστήριξη και υλοποίηση απαιτητικών έργων.
+      </p>
+    </section>
+
+    <!-- Skills -->
+    <section>
+      <h3>Τεχνικές Δεξιότητες</h3>
+      <div class="skills-grid">
+        <span class="skill-tag">POS Systems</span>
+        <span class="skill-tag">Hardware Repair</span>
+        <span class="skill-tag">Remote Support</span>
+        <span class="skill-tag">Windows 10/11</span>
+        <span class="skill-tag">Windows Server</span>
+        <span class="skill-tag">Networking</span>
+        <span class="skill-tag">WordPress Management</span>
+        <span class="skill-tag">Softone</span>
+        <span class="skill-tag">Microsoft Office</span>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section>
+      <h3>Επαγγελματική Εμπειρία</h3>
+      <div class="timeline">
+        
+        <div class="timeline-item">
+          <div class="job-title">Technical Support Engineer | IT Support Engineer</div>
+          <div class="job-company">ICS KARAFILIS S.A.</div>
+          <div class="job-dates">08/2014 – Σήμερα</div>
+          <ul class="job-desc">
+            <li>Υποστήριξη POS, Kiosk, Touch Monitors και Thermal Printers</li>
+            <li>Service και επισκευές hardware</li>
+            <li>Τηλεφωνική και απομακρυσμένη τεχνική υποστήριξη</li>
+            <li>Υλοποίηση μεγάλων εγκαταστάσεων</li>
+            <li>Εκτέλεση παραγγελιών και επικοινωνία με προμηθευτές εξωτερικού</li>
+            <li>Διαχείριση ιστοσελίδων WordPress</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="job-title">Τεχνικός Η/Υ</div>
+          <div class="job-company">Public</div>
+          <div class="job-dates">10/2012 – 07/2014</div>
+          <ul class="job-desc">
+            <li>Service Η/Υ, laptop, tablet και κινητών</li>
+            <li>Διαχείριση ελαττωματικών προϊόντων</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="job-title">Τεχνικός (Πρακτική)</div>
+          <div class="job-company">Ideal Electronics</div>
+          <div class="job-dates">05/2010 – 10/2010</div>
+          <ul class="job-desc">
+            <li>Service laptop Toshiba</li>
+            <li>Διαχείριση ανταλλακτικών</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="job-title">Εκπαιδευτής Πληροφορικής</div>
+          <div class="job-company">IQ Kids</div>
+          <div class="job-dates">09/2008 – 05/2009</div>
+          <ul class="job-desc">
+            <li>Εκπαίδευση MS Office και Internet</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="job-title">Τεχνικός Η/Υ & Δικτύων</div>
+          <div class="job-company">ΔΙΑΣΤΡΟΝ</div>
+          <div class="job-dates">07/2002 – 04/2008</div>
+          <ul class="job-desc">
+            <li>Service, δίκτυα, B2B υποστήριξη</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="job-title">Βοηθός Τεχνικού</div>
+          <div class="job-company">ASTRA COMPUTER</div>
+          <div class="job-dates">06/2000 – 06/2002</div>
+          <ul class="job-desc">
+            <li>Συναρμολόγηση και service Η/Υ</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Media / Projects (Φωτογραφικό Υλικό & Βίντεο) -->
+    <section>
+      <h3>Φωτογραφικό Υλικό & Έργα</h3>
+      <p style="margin-bottom: 1.5rem; font-size: 0.95rem; color: #64748b;">
+        Στιγμιότυπα από εγκαταστάσεις POS, Kiosk, τεχνικό έλεγχο εξοπλισμού και δοκιμές λειτουργίας.
+      </p>
+
+      <!-- Photos Grid -->
+      <div class="gallery-grid">
+        
+        <!-- Εγκατάσταση Dahua -->
+        <div class="gallery-card" onclick="openLightbox(this)">
+          <img src="https://lh3.googleusercontent.com/d/17EFF3lcpC38YLLCVxtm834qz8VtKd_SN=w1000" alt="Εγκατάσταση Dahua" loading="lazy">
+          <div class="gallery-info">
+            <h4>Εγκατάσταση Dahua</h4>
+            <p>Παραμετροποίηση και θέση σε λειτουργία εξοπλισμού</p>
+          </div>
+        </div>
+
+        <!-- Εγκατάσταση Kiosk (1) -->
+        <div class="gallery-card" onclick="openLightbox(this)">
+          <img src="https://lh3.googleusercontent.com/d/14k7FfLvJTpXPDNSZZNoZ3NjZxi6W1iUy=w1000" alt="Εγκατάσταση Kiosk" loading="lazy">
+          <div class="gallery-info">
+            <h4>Εγκατάσταση & Συναρμολόγηση Kiosk</h4>
+            <p>Υλοποίηση και δοκιμή αυτοματοποιημένων τερματικών Kiosk</p>
+          </div>
+        </div>
+
+        <!-- Εγκατάσταση Kiosk (2) -->
+        <div class="gallery-card" onclick="openLightbox(this)">
+          <img src="https://lh3.googleusercontent.com/d/1DEiylBAhKfKmYwGrN6sZTVY7s30CQChW=w1000" alt="Εγκατάσταση Kiosk - Έλεγχος" loading="lazy">
+          <div class="gallery-info">
+            <h4>Παραμετροποίηση Kiosk</h4>
+            <p>Τελικός τεχνικός έλεγχος λειτουργίας συστημάτων Kiosk</p>
+          </div>
+        </div>
+
+        <!-- Εγκατάσταση POS Systems -->
+        <div class="gallery-card" onclick="openLightbox(this)">
+          <img src="https://lh3.googleusercontent.com/d/1YM8JsEH4b-HMo7y6_OK3-0pB5EcySr-b=w1000" alt="Εγκατάσταση Συστημάτων POS" loading="lazy">
+          <div class="gallery-info">
+            <h4>Εγκατάσταση & Ρύθμιση POS</h4>
+            <p>Παραμετροποίηση συστημάτων λιανικής και περιφερειακών</p>
+          </div>
+        </div>
+
+        <!-- Εγκατάσταση Συστήματος Πάγκου -->
+        <div class="gallery-card" onclick="openLightbox(this)">
+          <img src="https://lh3.googleusercontent.com/d/1FCPE0arsCoUP2hGCVyYzxN0EjZP4EBqz=w1000" alt="Εγκατάσταση Συστήματος Πάγκου" loading="lazy">
+          <div class="gallery-info">
+            <h4>Σύστημα Πάγκου / POS</h4>
+            <p>Εγκατάσταση και ολοκλήρωση σταθμού εξυπηρέτησης</p>
+          </div>
+        </div>
+
+        <!-- Τεχνικός Έλεγχος & Εγκατάσταση Εξοπλισμού -->
+        <div class="gallery-card" onclick="openLightbox(this)">
+          <img src="https://lh3.googleusercontent.com/d/1f8WBLxRKnOIXDCvXWahq3OIsoGRYezwq=w1000" alt="Τεχνικός Έλεγχος & Εγκατάσταση" loading="lazy">
+          <div class="gallery-info">
+            <h4>Έλεγχος & Εγκατάσταση Εξοπλισμού</h4>
+            <p>Επιτόπιος έλεγχος, σύνδεση και πιστοποίηση λειτουργίας</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Video Section -->
+      <div class="video-card">
+        <div class="video-wrapper">
+          <iframe 
+            src="https://drive.google.com/file/d/1q0_TPVYL0iSHDDR3Lh9h2G1h5WTbKVPa/preview" 
+            allow="autoplay"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="gallery-info">
+          <h4>Βίντεο Επίδειξης / Test Λειτουργίας</h4>
+          <p>Έλεγχος και βαθμονόμηση εξοπλισμού σε πραγματικό περιβάλλον</p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Education -->
+    <section>
+      <h3>Εκπαίδευση</h3>
+      <div class="edu-item">
+        <div class="edu-title">ΑΤΕΙ Πειραιά</div>
+        <div class="edu-sub">Ηλεκτρονικά Υπολογιστικά Συστήματα</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-title">3ο ΤΕΕ Περιστερίου</div>
+        <div class="edu-sub">Ηλεκτρονικός Υπολογιστικών Συστημάτων & Δικτύων</div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="Προεπισκόπηση">
+  </div>
+
+  <footer>
+    &copy; 2026 Γεώργιος Δημάκος. All rights reserved.
+  </footer>
+
+  <script>
+    function openLightbox(card) {
+      const img = card.querySelector('img');
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      lightboxImg.src = img.src;
+      lightbox.style.display = 'flex';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>
